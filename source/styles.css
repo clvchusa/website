@@ -213,7 +213,7 @@ img, video { display: block; max-width: 100%; }
 .ticker-track {
   display: flex; gap: 48px;
   white-space: nowrap;
-  animation: tick 60s linear infinite;
+  animation: tick 35s linear infinite;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.18em;
@@ -1618,15 +1618,14 @@ footer {
   .nav-links { display: none; }
   .nav-inner { grid-template-columns: 1fr auto; }
   .hero-inner { padding-top: 48px; padding-bottom: 24px; }
-  .locswitch-inner { grid-template-columns: 1fr; }
-  .locswitch-aside { border-right: 0; border-bottom: 1px solid var(--line-soft); padding: 32px var(--pad); }
+  .locswitch-inner { grid-template-columns: 1fr; height: auto; }
+  .locswitch-aside { border-right: 0; border-bottom: 1px solid var(--line-soft); padding: 32px var(--pad); overflow: visible; }
   .locswitch-stage { min-height: 520px; }
   .pillars-grid { grid-template-columns: 1fr; }
   .pillar { grid-template-columns: 1fr; }
-  .pillar--img-right .pillar-img { order: 0; }
+  .pillar-img { order: 2; aspect-ratio: 16/9; min-height: 280px; }
+  .pillar-body { order: 1; padding: 48px 32px; }
   .pillar { min-height: 0; }
-  .pillar-img { aspect-ratio: 16/9; min-height: 280px; }
-  .pillar-body { padding: 48px 32px; }
   .pillars-head { grid-template-columns: 1fr; gap: 24px; }
   .film-inner { grid-template-columns: 1fr; }
   .foot-inner { grid-template-columns: 1fr 1fr; }
@@ -1641,6 +1640,7 @@ footer {
   .pillar-body { padding: 40px 24px; }
   .hero-top { flex-direction: column; }
   .foot-inner { grid-template-columns: 1fr; }
+  .foot-base { flex-direction: column; gap: 12px; }
   .locswitch-meta { grid-template-columns: 1fr; }
   .locswitch-meta .kv { grid-template-columns: 1fr 1fr; }
   .venue-now-inner { grid-template-columns: 1fr; }
@@ -2879,6 +2879,12 @@ footer {
    Mobile nav hamburger
    ═══════════════════════════════════════════════════════════════ */
 
+.nav-socials-bar {
+  display: none;
+  gap: 8px;
+  align-items: center;
+}
+
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -2903,6 +2909,7 @@ footer {
 
 @media (max-width: 1100px) {
   .nav-hamburger { display: flex; }
+  .nav-socials-bar { display: flex; }
   .nav-links.open {
     display: flex;
     flex-direction: column;

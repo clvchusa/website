@@ -448,7 +448,7 @@ ${renderGameday(l.id)}
     <div>
       <div class="eyebrow" style="margin-bottom:20px;">${l.city} · Book the night</div>
       <h2>Table for<br><em>tonight?</em></h2>
-      <p class="sub">${l.status === 'open' ? 'Reservations open for tonight and the next 60 nights.' : l.status === 'prep' ? 'Reservations open from 4 PM today.' : 'Founding reservations open. Priority to members and wait-list.'}</p>
+      <p class="sub">${l.status === 'open' ? 'Reservations available — book your table online.' : l.status === 'prep' ? 'Reservations open from 4 PM today.' : 'Founding reservations open. Priority to members and wait-list.'}</p>
     </div>
     <a href="#/reserve?city=${l.id}" class="bigcta" data-link>
       <div>

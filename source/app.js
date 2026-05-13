@@ -708,10 +708,8 @@ window.CLVCH.saveMenu = () => {
     const contact = (window.CLVCH && window.CLVCH.home && window.CLVCH.home.contact) || {};
     const ig = contact.instagram || "clvch.usa";
     const fb = contact.facebook  || "clvchusa";
-    const igEl = document.getElementById("navInstagram");
-    const fbEl = document.getElementById("navFacebook");
-    if (igEl) igEl.href = "https://instagram.com/" + ig;
-    if (fbEl) fbEl.href = "https://facebook.com/" + fb;
+    document.querySelectorAll(".nav-social--ig").forEach(el => { el.href = "https://instagram.com/" + ig; });
+    document.querySelectorAll(".nav-social--fb").forEach(el => { el.href = "https://facebook.com/" + fb; });
   }
   update();
   window.addEventListener("clvch:home-changed", update);
