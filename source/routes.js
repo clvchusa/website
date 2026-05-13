@@ -774,12 +774,28 @@ function renderMenu() {
   </div>
 
   <div class="menu-tab-row">
-    <button class="menu-tab-btn on" data-menu-tab="brunch">Brunch</button>
+    <button class="menu-tab-btn on" data-menu-tab="coffee">Coffee</button>
+    <button class="menu-tab-btn" data-menu-tab="brunch">Brunch</button>
     <button class="menu-tab-btn" data-menu-tab="kitchen">Kitchen</button>
     <button class="menu-tab-btn" data-menu-tab="bar">Bar</button>
   </div>
 
-  <div data-menu-panel="brunch" class="menu-panel">
+  <div data-menu-panel="coffee" class="menu-panel">
+    ${(window.CLVCH.menu.coffee && window.CLVCH.menu.coffee.length) ? `
+      <div class="menu-panel-sub">Specialty coffee · All day</div>
+      <div class="menu-items">${renderMenuItems(window.CLVCH.menu.coffee)}</div>
+    ` : `
+      <div class="menu-coming-soon">
+        <div class="menu-coming-soon-inner">
+          <div class="eyebrow" style="margin-bottom:20px;">Coming Soon</div>
+          <h2>Our coffee program<br>is being <em>perfected.</em></h2>
+          <p>A curated selection of specialty coffee and seasonal drinks — launching soon. Watch this space.</p>
+        </div>
+      </div>
+    `}
+  </div>
+
+  <div data-menu-panel="brunch" class="menu-panel" style="display:none">
     <div class="menu-panel-sub">Breakfast 8 AM – 11 AM · All-day brunch menu available from 11 AM</div>
     <div class="menu-items">${renderMenuItems(M.brunch)}</div>
   </div>
@@ -1256,9 +1272,10 @@ function renderAdminMenu() {
   ${tabs}
 
   <div class="admin-content" data-menu-editor="">
-    ${mkSection('kitchen', '01', 'Kitchen', 'Available daily from open · Kitchen stays open until 1 AM Fri–Sat')}
-    ${mkSection('brunch',  '02', 'Brunch',  'Saturday & Sunday · 11 AM – 4 PM')}
-    ${mkSection('bar',     '03', 'Bar',     'Full bar open daily · Craft cocktails, wine, beer, and non-alcoholic options')}
+    ${mkSection('coffee',  '01', 'Coffee',  'Specialty coffee program — add items when ready to go live')}
+    ${mkSection('brunch',  '02', 'Brunch',  'Breakfast 8 AM – 11 AM · All-day brunch menu from 11 AM')}
+    ${mkSection('kitchen', '03', 'Kitchen', 'Available daily from open · Kitchen stays open until 1 AM Fri–Sat')}
+    ${mkSection('bar',     '04', 'Bar',     'Full bar open daily · Craft cocktails, wine, beer, and non-alcoholic options')}
 
     <div class="admin-form-foot" style="margin-top:40px;">
       <div class="admin-form-foot-msg" data-form-msg></div>

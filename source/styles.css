@@ -3480,6 +3480,20 @@ footer {
   padding: 3px 7px;
   font-weight: 400;
 }
+.menu-coming-soon {
+  padding: 80px 0 40px;
+  border-top: 1px solid var(--line-soft);
+}
+.menu-coming-soon-inner { max-width: 480px; }
+.menu-coming-soon h2 {
+  font-family: var(--display);
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+.menu-coming-soon h2 em { font-family: var(--editorial); font-style: italic; color: var(--gold); font-weight: 300; }
+.menu-coming-soon p { font-size: 14px; color: var(--bone-muted); line-height: 1.75; }
 .menu-note {
   margin-top: 80px;
   padding-top: 40px;

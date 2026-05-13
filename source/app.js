@@ -336,6 +336,7 @@ window.CLVCH.saveArticles = () => {
 
 /* ─────── Menu ─────── */
 const MENU_SEED = {
+  coffee: [],
   kitchen: [
     { name: "Grilled Cheese", desc: "Sourdough, caramelized onions, basil, Dijon, mixed cheese · served with sweet potato chips, house salad & pickles", price: "$14.50", tag: "Sandwich" },
     { name: "Chipotle Roasted Chicken", desc: "Ciabatta, cheddar, pesto, lemon garlic aioli · served with sweet potato chips, house salad & pickles", price: "$16.50", tag: "Sandwich" },
