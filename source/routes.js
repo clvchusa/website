@@ -774,19 +774,19 @@ function renderMenu() {
   </div>
 
   <div class="menu-tab-row">
-    <button class="menu-tab-btn on" data-menu-tab="kitchen">Kitchen</button>
-    <button class="menu-tab-btn" data-menu-tab="brunch">Brunch</button>
+    <button class="menu-tab-btn on" data-menu-tab="brunch">Brunch</button>
+    <button class="menu-tab-btn" data-menu-tab="kitchen">Kitchen</button>
     <button class="menu-tab-btn" data-menu-tab="bar">Bar</button>
   </div>
 
-  <div data-menu-panel="kitchen" class="menu-panel">
-    <div class="menu-panel-sub">Available daily from open · Kitchen open until 1 AM Fri–Sat</div>
-    <div class="menu-items">${renderMenuItems(M.kitchen)}</div>
-  </div>
-
-  <div data-menu-panel="brunch" class="menu-panel" style="display:none">
+  <div data-menu-panel="brunch" class="menu-panel">
     <div class="menu-panel-sub">Breakfast 8 AM – 11 AM · All-day brunch menu available from 11 AM</div>
     <div class="menu-items">${renderMenuItems(M.brunch)}</div>
+  </div>
+
+  <div data-menu-panel="kitchen" class="menu-panel" style="display:none">
+    <div class="menu-panel-sub">Available daily from open · Kitchen open until 1 AM Fri–Sat</div>
+    <div class="menu-items">${renderMenuItems(M.kitchen)}</div>
   </div>
 
   <div data-menu-panel="bar" class="menu-panel" style="display:none">
