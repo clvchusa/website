@@ -2345,8 +2345,8 @@ function route() {
           general:   (data["contact.general"]   || "").trim(),
           events:    (data["contact.events"]    || "").trim(),
           franchise: (data["contact.franchise"] || "").trim(),
-          instagram: (data["contact.instagram"] || "").trim().replace(/^@/, ""),
-          facebook:  (data["contact.facebook"]  || "").trim().replace(/^@/, ""),
+          instagram: (data["contact.instagram"] || "").trim().replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/\/$/, "").replace(/^@/, ""),
+          facebook:  (data["contact.facebook"]  || "").trim().replace(/^https?:\/\/(www\.)?facebook\.com\//, "").replace(/\/$/, "").replace(/^@/, ""),
         };
 
         window.CLVCH.saveHome();

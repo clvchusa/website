@@ -153,7 +153,7 @@ const HOME_SEED = {
     press:     "press@clvch.co",
     franchise: "franchise@clvch.co",
     instagram: "clvch.usa",
-    facebook:  "clvch.usa",
+    facebook:  "clvchusa",
   },
 };
 
