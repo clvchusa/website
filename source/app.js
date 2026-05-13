@@ -527,14 +527,14 @@ window.CLVCH.saveMenu = () => {
   try { localStorage.setItem('clvch_menu', JSON.stringify(window.CLVCH.menu)); } catch {}
 };
 
-/* ═══ Admin shortcut: Shift+A jumps to /admin from anywhere ═══ */
-document.addEventListener("keydown", (e) => {
-  if (e.shiftKey && (e.key === "A" || e.key === "a") &&
-      !["INPUT","TEXTAREA","SELECT"].includes(document.activeElement?.tagName)) {
-    e.preventDefault();
-    location.hash = "#/admin";
-  }
-});
+/* Admin shortcut disabled for public deployment — re-enable for local dev */
+// document.addEventListener("keydown", (e) => {
+//   if (e.shiftKey && (e.key === "A" || e.key === "a") &&
+//       !["INPUT","TEXTAREA","SELECT"].includes(document.activeElement?.tagName)) {
+//     e.preventDefault();
+//     location.hash = "#/admin";
+//   }
+// });
 
 /* ═══ Cursor glow ═══ */
 (function cursor() {

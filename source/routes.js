@@ -1010,7 +1010,7 @@ function renderFooter() {
   <div class="foot-base">
     <span>© 2026 CLVCH Hospitality Group · <a href="#/privacy" data-link style="color:inherit;">Privacy</a> · <a href="#/terms" data-link style="color:inherit;">Terms</a></span>
     <span>${publicLocations().map(l => l.city).join(' · ')}</span>
-    <span>Bites · Beats · Booze · <a href="#/admin" data-link style="color:inherit;opacity:0.7;">Staff</a></span>
+    <span>Bites · Beats · Booze</span>
   </div>
 </footer>
   `;
@@ -2006,11 +2006,7 @@ function route() {
   else if (segs[0] === "terms") html = renderTerms();
   else if (segs[0] === "stories" && segs[1]) html = renderStory(segs[1]);
   else if (segs[0] === "stories") html = renderStories();
-  else if (segs[0] === "admin" && segs[1] === "stories") html = renderAdminStories(segs[2] || null);
-  else if (segs[0] === "admin" && segs[1] === "menu") html = renderAdminMenu();
-  else if (segs[0] === "admin" && segs[1] === "home") html = renderAdmin("__home__");
-  else if (segs[0] === "admin" && segs[1]) html = renderAdmin(segs[1]);
-  else if (segs[0] === "admin") html = renderAdmin(null);
+  else if (segs[0] === "admin") html = renderHome();
   else html = renderHome();
 
   outlet.innerHTML = html;
