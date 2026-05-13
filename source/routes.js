@@ -36,8 +36,9 @@ function renderGameday(scope) {
     posters = [{ id: "default", src: window.CLVCH.defaultPoster, label: scope === "home" ? "CLVCH · Every city, every night" : `${cityMeta ? "CLVCH · " + scope.toUpperCase() : "CLVCH"}`, isDefault: true }];
   }
 
-  // Social handles: on city scope use that city's; on home pick a rotating set
-  let ig = "clvch", fb = "clvch";
+  // Social handles: on city scope use that city's; on home use brand handles
+  let ig = window.CLVCH.home?.contact?.instagram || "clvch.usa";
+  let fb = window.CLVCH.home?.contact?.facebook  || "clvchusa";
   let caption = "Tonight's lineup, offers, and last call.";
   if (scope !== "home" && cityMeta) {
     ig = cityMeta.instagram || ig;
