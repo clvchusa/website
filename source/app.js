@@ -152,8 +152,8 @@ const HOME_SEED = {
     events:    "private@clvch.co",
     press:     "press@clvch.co",
     franchise: "franchise@clvch.co",
-    instagram: "clvch",
-    facebook:  "clvch",
+    instagram: "clvch.usa",
+    facebook:  "clvch.usa",
   },
 };
 
