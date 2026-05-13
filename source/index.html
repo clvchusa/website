@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CLVCH — Bites · Beats · Booze</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css?v=34" />
+</head>
+<body>
+
+<!-- ============ AGE GATE ============ -->
+<div class="agegate" id="ageGate" aria-modal="true" role="dialog" aria-label="Age verification" style="display:none;">
+  <div class="agegate-card">
+    <div class="agegate-logo">CLVCH</div>
+    <div class="eyebrow" style="margin-bottom:16px;color:var(--bone-muted);">Before you step in</div>
+    <h2>Are you 21<br>or <em>older?</em></h2>
+    <p>CLVCH is a bar, restaurant, and nightclub. You must be of legal drinking age to enter this site.</p>
+    <div class="agegate-btns">
+      <button id="ageYes">Yes, I'm 21+</button>
+      <button id="ageNo" class="is-secondary">No, take me back</button>
+    </div>
+    <p class="agegate-legal">By entering you confirm you are of legal drinking age in your jurisdiction. Please drink responsibly. Don't drink and drive.</p>
+  </div>
+</div>
+
+<!-- ============ CURSOR GLOW ============ -->
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- ============ GRAIN ============ -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#/" data-link>
+      <img src="../assets/CLVCH-header-logo.png" alt="CLVCH — Bites · Beats · Booze" class="brand-logo" />
+    </a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav-links">
+      <a href="#/" id="navLocations" data-link>Locations <sup id="navLocationsCount">01</sup></a>
+      <a href="#/" id="navExperience" data-link>Experience</a>
+      <a href="#/menu" data-link>Menu</a>
+      <a href="#/stories" data-link>Stories</a>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="https://instagram.com/clvch" class="nav-social" target="_blank" rel="noopener" aria-label="CLVCH on Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg>
+      </a>
+      <a href="https://facebook.com/clvch" class="nav-social" target="_blank" rel="noopener" aria-label="CLVCH on Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </nav>
+  </div>
+  <div class="nav-ticker" aria-hidden="true">
+    <div class="ticker-track" id="navTickerTrack"></div>
+  </div>
+</header>
+
+<!-- ============ ROUTE OUTLET ============ -->
+<main id="outlet"></main>
+
+<!-- ============ CITY-GATE MODAL ============ -->
+<div class="citygate" id="cityGate" aria-hidden="true" role="dialog" aria-label="Join the CLVCH list">
+  <div class="citygate-card">
+    <button class="citygate-close" id="cityGateClose" aria-label="Close">✕</button>
+    <div class="citygate-eyebrow" id="cityGateCity">CLVCH · Step inside</div>
+    <h3>The <em>List.</em></h3>
+    <p class="citygate-lede">First access to new openings, residencies, and gameday tables in your city. One email, unsubscribe anytime.</p>
+
+    <form class="citygate-form" id="cityGateForm">
+      <input type="email" id="cityGateEmail" placeholder="you@domain.com" required />
+      <button type="submit">Join</button>
+    </form>
+
+    <button class="citygate-skip" id="cityGateSkip">Skip — continue as guest →</button>
+  </div>
+</div>
+
+
+<script src="app.js?v=34"></script>
+<script src="routes.js?v=34"></script>
+
+</body>
+</html>
