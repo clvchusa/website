@@ -139,7 +139,6 @@ const HOME_SEED = {
     ],
   },
   marqueeWords: ["Sunday Football", "Late Kitchen", "Gold Room", "Every Day Brunch", "Private Events", "Live DJs"],
-  pressLogos: ["Eater", "VOGUE", "Condé Nast", "GQ", "Bon Appétit", "Resy"],
   menuPdf: "",
   reserveStrip: {
     eyebrow: "Book the night",

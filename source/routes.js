@@ -134,7 +134,6 @@ function renderHome() {
   const pillars = H.pillars.items || [];
   const homeMarquee = (H.marqueeWords || []).filter(Boolean);
   const homeMarqueeHTML = (homeMarquee.length ? homeMarquee : ["CLVCH"]).map((w, i) => i % 2 === 0 ? `<span>${w}<em> · </em></span>` : `<span>${w}</span>`).join("");
-  const pressLogos = (H.pressLogos || []).filter(Boolean);
   return `
 <!-- HERO -->
 <section class="hero">
@@ -285,15 +284,6 @@ function renderHome() {
   </div>
 </div>
 
-<!-- PRESS -->
-<section class="press">
-  <div class="press-inner">
-    <h4>As seen in</h4>
-    <div class="press-logos">
-      ${pressLogos.map(p => `<span>${p}</span>`).join("")}
-    </div>
-  </div>
-</section>
 
 <!-- RESERVE CTA -->
 <section class="reserve-strip">
@@ -675,7 +665,6 @@ function renderContact() {
   const C = window.CLVCH.home.contact || {};
   const cg = C.general   || "hello@clvch.co";
   const ce = C.events    || "private@clvch.co";
-  const cp = C.press     || "press@clvch.co";
   const cf = C.franchise || "franchise@clvch.co";
   const ig = C.instagram || "clvch";
   const fb = C.facebook  || "clvch";
@@ -719,7 +708,6 @@ function renderContact() {
         <ul>
           <li><a href="mailto:${cg}">${cg}</a> <span>— General</span></li>
           <li><a href="mailto:${ce}">${ce}</a> <span>— Private events &amp; buyouts</span></li>
-          <li><a href="mailto:${cp}">${cp}</a> <span>— Press &amp; media</span></li>
           <li><a href="mailto:${cf}">${cf}</a> <span>— Franchise &amp; partnerships</span></li>
         </ul>
       </div>
@@ -1015,7 +1003,6 @@ function renderFooter() {
         <li><a href="#/contact" data-link>All locations</a></li>
         <li><a href="mailto:hello@clvch.co">hello@clvch.co</a></li>
         <li><a href="mailto:private@clvch.co">Private Events</a></li>
-        <li><a href="mailto:press@clvch.co">Press</a></li>
       </ul>
     </div>
   </div>
@@ -1565,7 +1552,6 @@ function renderAdminHomeBlock() {
   const sm = H.hero.subModes || ["", "", ""];
   const pillars = H.pillars.items || [];
   const marquee = (H.marqueeWords || []).join(", ").replace(/"/g,"&quot;");
-  const press = (H.pressLogos || []).join(", ").replace(/"/g,"&quot;");
   const esc = (s) => String(s ?? "").replace(/"/g,"&quot;");
 
   return `
@@ -1697,19 +1683,6 @@ function renderAdminHomeBlock() {
   <div class="admin-form-section">
     <div class="admin-form-section-head">
       <span class="admin-form-section-num">07</span>
-      <h3>Press logos</h3>
-      <p>The "As seen in" strip. Comma-separated. Renders as text right now — swap for image logos later.</p>
-    </div>
-    <div class="admin-form-grid admin-form-grid--1">
-      <label>Logos
-        <input type="text" name="pressLogos" value="${press}" placeholder="Eater, VOGUE, Condé Nast, GQ" />
-      </label>
-    </div>
-  </div>
-
-  <div class="admin-form-section">
-    <div class="admin-form-section-head">
-      <span class="admin-form-section-num">08</span>
       <h3>Reserve strip</h3>
       <p>Bottom CTA band. Headline supports <code>&lt;br&gt;</code> and <code>&lt;em&gt;</code>.</p>
     </div>
@@ -1765,9 +1738,6 @@ function renderAdminHomeBlock() {
       </label>
       <label>Private events email
         <input type="text" name="contact.events" value="${esc(H.contact?.events||'')}" placeholder="private@clvch.co" />
-      </label>
-      <label>Press email
-        <input type="text" name="contact.press" value="${esc(H.contact?.press||'')}" placeholder="press@clvch.co" />
       </label>
       <label>Franchise email
         <input type="text" name="contact.franchise" value="${esc(H.contact?.franchise||'')}" placeholder="franchise@clvch.co" />
@@ -2374,7 +2344,6 @@ function route() {
         H.contact = {
           general:   (data["contact.general"]   || "").trim(),
           events:    (data["contact.events"]    || "").trim(),
-          press:     (data["contact.press"]     || "").trim(),
           franchise: (data["contact.franchise"] || "").trim(),
           instagram: (data["contact.instagram"] || "").trim(),
           facebook:  (data["contact.facebook"]  || "").trim(),
