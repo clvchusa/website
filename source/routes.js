@@ -664,11 +664,11 @@ ${renderFooter()}
 function renderContact() {
   const L = publicLocations();
   const C = window.CLVCH.home.contact || {};
-  const cg = C.general   || "hello@clvch.co";
-  const ce = C.events    || "private@clvch.co";
-  const cf = C.franchise || "franchise@clvch.co";
-  const ig = C.instagram || "clvch";
-  const fb = C.facebook  || "clvch";
+  const cg = C.general   || "info@clvchusa.com";
+  const ce = C.events    || "info@clvchusa.com";
+  const cf = C.franchise || "info@clvchusa.com";
+  const ig = C.instagram || "clvch.usa";
+  const fb = C.facebook  || "clvchusa";
   return `
 <section class="locpage">
   <div class="locpage-head">
@@ -819,7 +819,7 @@ function renderPrivacy() {
   </div>
   <div class="static-page-body">
     <h2>Who we are</h2>
-    <p>CLVCH Hospitality Group ("CLVCH", "we", "our", or "us") operates CLVCH restaurants, bars, and nightclubs across the United States, as well as this website (<strong>clvch.co</strong>). Our principal place of business is in Atlanta, Georgia. This Privacy Policy explains how we collect, use, disclose, and protect your information when you visit our website or engage with our services.</p>
+    <p>CLVCH Hospitality Group ("CLVCH", "we", "our", or "us") operates CLVCH restaurants, bars, and nightclubs across the United States, as well as this website (<strong>clvchusa.com</strong>). Our principal place of business is in Atlanta, Georgia. This Privacy Policy explains how we collect, use, disclose, and protect your information when you visit our website or engage with our services.</p>
 
     <h2>Information we collect</h2>
     <p><strong>Information you provide directly:</strong> When you join our city-specific email list, make a reservation inquiry, or contact us, we collect your name, email address, phone number, and any notes you include. This information is used solely to fulfill your request and to send you CLVCH updates for the city you opted into.</p>
@@ -835,7 +835,7 @@ function renderPrivacy() {
     </ul>
 
     <h2>Email communications</h2>
-    <p>If you join our list, you will receive emails relevant to your chosen CLVCH city — new openings, residencies, exclusive access, and gameday tables. You can unsubscribe at any time by clicking the unsubscribe link in any email or by writing to <a href="mailto:hello@clvch.co">hello@clvch.co</a>. We do not send marketing across cities without your explicit consent.</p>
+    <p>If you join our list, you will receive emails relevant to your chosen CLVCH city — new openings, residencies, exclusive access, and gameday tables. You can unsubscribe at any time by clicking the unsubscribe link in any email or by writing to <a href="mailto:info@clvchusa.com">info@clvchusa.com</a>. We do not send marketing across cities without your explicit consent.</p>
 
     <h2>Cookies</h2>
     <p>We use session cookies and localStorage to store your preferences (city selection, age confirmation, email capture status). These are stored only in your browser and are not transmitted to advertising networks. You can clear them at any time through your browser settings.</p>
@@ -844,10 +844,10 @@ function renderPrivacy() {
     <p>Our website may link to third-party services (Instagram, Facebook, Google Fonts). These services have their own privacy policies and are not covered by this document. We are not responsible for their data practices.</p>
 
     <h2>Data retention</h2>
-    <p>Email addresses collected via our website are retained for as long as you remain subscribed. Reservation inquiry data is retained for up to 90 days. You may request deletion of your data at any time by contacting <a href="mailto:hello@clvch.co">hello@clvch.co</a>.</p>
+    <p>Email addresses collected via our website are retained for as long as you remain subscribed. Reservation inquiry data is retained for up to 90 days. You may request deletion of your data at any time by contacting <a href="mailto:info@clvchusa.com">info@clvchusa.com</a>.</p>
 
     <h2>Your rights</h2>
-    <p>Depending on your jurisdiction, you may have the right to access, correct, or delete personal information we hold about you. Georgia residents and California residents (under CCPA) may submit requests to <a href="mailto:hello@clvch.co">hello@clvch.co</a>. We will respond within 30 days.</p>
+    <p>Depending on your jurisdiction, you may have the right to access, correct, or delete personal information we hold about you. Georgia residents and California residents (under CCPA) may submit requests to <a href="mailto:info@clvchusa.com">info@clvchusa.com</a>. We will respond within 30 days.</p>
 
     <h2>Children's privacy</h2>
     <p>CLVCH is an alcohol-serving establishment. Our website is not directed at individuals under 21 years of age, and we do not knowingly collect personal information from minors. If you believe a minor has provided us information, contact us immediately.</p>
@@ -856,7 +856,7 @@ function renderPrivacy() {
     <p>We may update this Privacy Policy from time to time. We will post the updated policy on this page with a revised date. Continued use of our website after changes constitutes acceptance of the updated policy.</p>
 
     <h2>Contact</h2>
-    <p>Privacy enquiries: <a href="mailto:hello@clvch.co">hello@clvch.co</a> · CLVCH Hospitality Group · Atlanta, Georgia</p>
+    <p>Privacy enquiries: <a href="mailto:info@clvchusa.com">info@clvchusa.com</a> · CLVCH Hospitality Group · Atlanta, Georgia</p>
   </div>
 </div>
 ${renderFooter()}
@@ -874,7 +874,7 @@ function renderTerms() {
   </div>
   <div class="static-page-body">
     <h2>Acceptance of terms</h2>
-    <p>By accessing or using the CLVCH website (clvch.co) or any CLVCH venue, you agree to these Terms of Service and our <a href="#/privacy" data-link>Privacy Policy</a>. If you do not agree, please do not use our services.</p>
+    <p>By accessing or using the CLVCH website (clvchusa.com) or any CLVCH venue, you agree to these Terms of Service and our <a href="#/privacy" data-link>Privacy Policy</a>. If you do not agree, please do not use our services.</p>
 
     <h2>Age requirement and alcohol notice</h2>
     <p><strong>You must be 21 years of age or older to access this website and to enter any CLVCH venue.</strong> CLVCH holds active liquor licenses and serves alcohol at all locations. By accessing this site, you confirm you are of legal drinking age in your jurisdiction. We reserve the right to ask for valid photo ID at any time and to refuse service to anyone who cannot provide valid proof of age.</p>
@@ -900,7 +900,7 @@ function renderTerms() {
     <p>These Terms are governed by the laws of the State of Georgia, United States, without regard to its conflict of law provisions. Disputes shall be resolved in the state or federal courts located in Fulton County, Georgia.</p>
 
     <h2>Contact</h2>
-    <p>Legal enquiries: <a href="mailto:hello@clvch.co">hello@clvch.co</a> · CLVCH Hospitality Group · Atlanta, Georgia</p>
+    <p>Legal enquiries: <a href="mailto:info@clvchusa.com">info@clvchusa.com</a> · CLVCH Hospitality Group · Atlanta, Georgia</p>
   </div>
 </div>
 ${renderFooter()}
@@ -1002,8 +1002,8 @@ function renderFooter() {
       <h5>Contact</h5>
       <ul>
         <li><a href="#/contact" data-link>All locations</a></li>
-        <li><a href="mailto:hello@clvch.co">hello@clvch.co</a></li>
-        <li><a href="mailto:private@clvch.co">Private Events</a></li>
+        <li><a href="mailto:info@clvchusa.com">info@clvchusa.com</a></li>
+        <li><a href="mailto:info@clvchusa.com">Private Events</a></li>
       </ul>
     </div>
   </div>
@@ -1323,7 +1323,7 @@ function renderAdminGate(scopeCityId) {
       `).join("")}
     </div>
 
-    <a href="#/" data-link class="admin-gate-back">← Back to clvch.co</a>
+    <a href="#/" data-link class="admin-gate-back">← Back to clvchusa.com</a>
   </div>
 </section>
   `;
@@ -1735,13 +1735,13 @@ function renderAdminHomeBlock() {
     </div>
     <div class="admin-form-grid admin-form-grid--2">
       <label>General email
-        <input type="text" name="contact.general" value="${esc(H.contact?.general||'')}" placeholder="hello@clvch.co" />
+        <input type="text" name="contact.general" value="${esc(H.contact?.general||'')}" placeholder="info@clvchusa.com" />
       </label>
       <label>Private events email
-        <input type="text" name="contact.events" value="${esc(H.contact?.events||'')}" placeholder="private@clvch.co" />
+        <input type="text" name="contact.events" value="${esc(H.contact?.events||'')}" placeholder="info@clvchusa.com" />
       </label>
       <label>Franchise email
-        <input type="text" name="contact.franchise" value="${esc(H.contact?.franchise||'')}" placeholder="franchise@clvch.co" />
+        <input type="text" name="contact.franchise" value="${esc(H.contact?.franchise||'')}" placeholder="info@clvchusa.com" />
       </label>
       <label>Instagram handle <small>(without @)</small>
         <input type="text" name="contact.instagram" value="${esc(H.contact?.instagram||'')}" placeholder="clvch" />

@@ -14,16 +14,16 @@ const LOCATIONS_SEED = [
     city: "Atlanta",
     state: "Georgia",
     status: "open",
-    tonight: "Live DJ Set · Throwback Hits",
-    tonightTime: "10 PM – 2 AM",
-    address: "1280 Peachtree St NE · Atlanta, GA 30309",
-    phone: "+1 (404) 555-1234",
-    hours: "Mon–Thu 4–12 · Fri 4–2 · Sat 12–2 · Sun 12–12",
-    capacity: 340,
-    opened: "2022",
+    tonight: "",
+    tonightTime: "",
+    address: "10305 Medlock Bridge Rd, Johns Creek, GA 30097",
+    phone: "+1 (678) 587-5394",
+    hours: "Mon–Sat 8am–2am · Sun 10am–10pm",
+    capacity: 250,
+    opened: "2026",
     hero: "../assets/img-club-1.jpg",
-    blurb: "The flagship. Wall-to-wall screens by day, gold-room energy by night.",
-    marqueeWords: ["Peachtree", "Sunday Football", "Gold Room", "Smash Burgers", "King of the South", "Late Kitchen"],
+    blurb: "Johns Creek's home for great food, live sports, and nights that go all the way. Smash burgers and brunch by day, signature cocktails and dancing by night — all under one roof.",
+    marqueeWords: ["Signature Drinks", "Your Fav Game on Screen", "Smash Burgers", "Dance", "Food", "Music", "Brunch", "Late Kitchen"],
     disabled: false,
     reservations_enabled: true,
     roomImages: { bites: [], beats: [], booze: [] },
@@ -148,10 +148,10 @@ const HOME_SEED = {
     ctaSub: "→ All cities",
   },
   contact: {
-    general:   "hello@clvch.co",
-    events:    "private@clvch.co",
-    press:     "press@clvch.co",
-    franchise: "franchise@clvch.co",
+    general:   "info@clvchusa.com",
+    events:    "info@clvchusa.com",
+    press:     "info@clvchusa.com",
+    franchise: "info@clvchusa.com",
     instagram: "clvch.usa",
     facebook:  "clvchusa",
   },
@@ -700,6 +700,21 @@ document.addEventListener("keydown", (e) => {
   window.addEventListener("storage", (e) => {
     if (e.key && e.key.startsWith("clvch_")) render();
   });
+})();
+
+/* ═══ Nav social links — kept in sync with home contact settings ═══ */
+(function navSocials() {
+  function update() {
+    const contact = (window.CLVCH && window.CLVCH.home && window.CLVCH.home.contact) || {};
+    const ig = contact.instagram || "clvch.usa";
+    const fb = contact.facebook  || "clvchusa";
+    const igEl = document.getElementById("navInstagram");
+    const fbEl = document.getElementById("navFacebook");
+    if (igEl) igEl.href = "https://instagram.com/" + ig;
+    if (fbEl) fbEl.href = "https://facebook.com/" + fb;
+  }
+  update();
+  window.addEventListener("clvch:home-changed", update);
 })();
 
 /* ═══ Age gate / Alcohol notice ═══ */
