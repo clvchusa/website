@@ -143,7 +143,7 @@ const HOME_SEED = {
   reserveStrip: {
     eyebrow: "Book the night",
     headline: "A table, a <em>night,</em><br>the house.",
-    sub: "Standard reservations open 60 days out. Private events, buyouts, and VIP suites handled directly by the Maître D'.",
+    sub: "Reserve your table online or reach out to us directly for private events and group bookings.",
     ctaTitle: "Reserve",
     ctaSub: "→ All cities",
   },

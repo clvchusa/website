@@ -633,7 +633,6 @@ function renderReserve() {
           </div>
 
           <button type="button" class="cta" data-reserve-submit id="reserveSubmitBtn" style="width:100%;padding:20px;font-size:13px;">Hold my table →</button>
-          <p class="mono" style="font-size:10px;letter-spacing:0.2em;color:var(--bone-muted);margin-top:16px;text-transform:uppercase;text-align:center;">Or talk to the Maître D' — bottom right.</p>
         </div>
 
         <!-- OFF message shown when reservations_enabled = false -->
