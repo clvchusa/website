@@ -121,7 +121,7 @@ window.CLVCH.resetAll = () => {
 const HOME_SEED = {
   hero: {
     chapter: "Chapter Ⅳ / 2026",
-    estLine: "Est. 2022",
+    estLine: "Est. 2026",
     word1: "Bites",
     word2: "Beats",
     word3: "Booze",
@@ -674,21 +674,21 @@ window.CLVCH.saveMenu = () => {
     return `● ${(l.city || "").toUpperCase()} · ${l.tonight.toUpperCase()}`;
   }
 
+  const VIBE_WORDS = [
+    "● SMASH BURGERS", "● SIGNATURE COCKTAILS", "● LIVE SPORTS",
+    "● LATE NIGHT KITCHEN", "● DANCE ALL NIGHT", "● BRUNCH DONE RIGHT",
+    "● YOUR GAME ON EVERY SCREEN", "● CRAFT DRINKS", "● GOOD VIBES ONLY",
+    "● EAT · DRINK · DANCE", "● HAPPY HOUR EVERY DAY", "● BITES · BEATS · BOOZE"
+  ];
+
   function render() {
     const locs = (window.CLVCH && window.CLVCH.locations) || [];
     const countEl = document.getElementById("navLocationsCount");
     if (countEl) countEl.textContent = String(locs.length).padStart(2, "0");
-    if (!locs.length) { track.innerHTML = ""; return; }
 
-    const lines = [];
-    locs.forEach(l => lines.push(statusLine(l)));
-    locs.forEach(l => { const t = tonightLine(l); if (t) lines.push(t); });
-
-    // Duplicate the sequence so the CSS marquee loops seamlessly.
-    // For a single city we repeat more times so the track has enough width to scroll.
-    const reps = locs.length === 1 ? 6 : locs.length <= 3 ? 3 : 2;
+    const reps = 3;
     const all = [];
-    for (let i = 0; i < reps; i++) all.push(...lines);
+    for (let i = 0; i < reps; i++) all.push(...VIBE_WORDS);
     track.innerHTML = all.map(s => `<span>${s}</span>`).join("");
   }
 
