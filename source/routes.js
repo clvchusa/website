@@ -773,39 +773,25 @@ function renderMenu() {
     </a>` : ''}
   </div>
 
-  <div class="menu-sections">
-    <div class="menu-section">
-      <div class="menu-section-head">
-        <span class="menu-section-num">01</span>
-        <div>
-          <h2>Kitchen</h2>
-          <p>Available daily from open · Kitchen stays open until 1 AM Fri–Sat</p>
-        </div>
-      </div>
-      <div class="menu-items">${renderMenuItems(M.kitchen)}</div>
-    </div>
+  <div class="menu-tab-row">
+    <button class="menu-tab-btn on" data-menu-tab="kitchen">Kitchen</button>
+    <button class="menu-tab-btn" data-menu-tab="brunch">Brunch</button>
+    <button class="menu-tab-btn" data-menu-tab="bar">Bar</button>
+  </div>
 
-    <div class="menu-section">
-      <div class="menu-section-head">
-        <span class="menu-section-num">02</span>
-        <div>
-          <h2>Brunch</h2>
-          <p>Saturday & Sunday · 11 AM – 4 PM</p>
-        </div>
-      </div>
-      <div class="menu-items">${renderMenuItems(M.brunch)}</div>
-    </div>
+  <div data-menu-panel="kitchen" class="menu-panel">
+    <div class="menu-panel-sub">Available daily from open · Kitchen open until 1 AM Fri–Sat</div>
+    <div class="menu-items">${renderMenuItems(M.kitchen)}</div>
+  </div>
 
-    <div class="menu-section">
-      <div class="menu-section-head">
-        <span class="menu-section-num">03</span>
-        <div>
-          <h2>Bar</h2>
-          <p>Full bar open daily · Craft cocktails, wine, beer, and non-alcoholic options</p>
-        </div>
-      </div>
-      <div class="menu-items">${renderMenuItems(M.bar)}</div>
-    </div>
+  <div data-menu-panel="brunch" class="menu-panel" style="display:none">
+    <div class="menu-panel-sub">Breakfast 8 AM – 11 AM · All-day brunch menu available from 11 AM</div>
+    <div class="menu-items">${renderMenuItems(M.brunch)}</div>
+  </div>
+
+  <div data-menu-panel="bar" class="menu-panel" style="display:none">
+    <div class="menu-panel-sub">Full bar open daily · Signature cocktails · Wine · Beer · Spirits</div>
+    <div class="menu-items">${renderMenuItems(M.bar)}</div>
   </div>
 
   <div class="menu-note">
@@ -2052,6 +2038,20 @@ function route() {
   outlet.querySelectorAll('[data-link]').forEach(a => {
     a.addEventListener("click", () => { /* hash router handles it */ });
   });
+
+  // ─── Menu tabs ───
+  const menuTabBtns = outlet.querySelectorAll('[data-menu-tab]');
+  if (menuTabBtns.length) {
+    menuTabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.menuTab;
+        menuTabBtns.forEach(b => b.classList.toggle('on', b === btn));
+        outlet.querySelectorAll('[data-menu-panel]').forEach(p => {
+          p.style.display = p.dataset.menuPanel === tab ? '' : 'none';
+        });
+      });
+    });
+  }
 
   // ─── Gameday poster carousel ───
   const gdStage = outlet.querySelector("#gdStage");
