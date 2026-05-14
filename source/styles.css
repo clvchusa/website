@@ -1069,7 +1069,7 @@ img, video { display: block; max-width: 100%; }
 .marquee-track {
   display: flex; gap: 80px;
   white-space: nowrap;
-  animation: tick 40s linear infinite;
+  animation: tick 25s linear infinite;
   padding-left: 80px;
 }
 .marquee-track span {
@@ -1083,7 +1083,7 @@ img, video { display: block; max-width: 100%; }
 
 /* Smaller variant — used on venue pages where the giant home-page size feels too loud. */
 .marquee.marquee--sm { padding: 24px 0; }
-.marquee.marquee--sm .marquee-track { gap: 48px; padding-left: 48px; animation-duration: 32s; }
+.marquee.marquee--sm .marquee-track { gap: 48px; padding-left: 48px; animation-duration: 18s; }
 .marquee.marquee--sm .marquee-track span { font-size: 36px; }
 .marquee.marquee--sm .marquee-track span em { font-size: 0.8em; }
 
