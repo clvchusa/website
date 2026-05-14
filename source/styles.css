@@ -3050,7 +3050,7 @@ footer {
 .stories-page {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 80px var(--pad) 120px;
+  padding: calc(var(--nav-h) + var(--ticker-h) + 60px) var(--pad) 120px;
 }
 .stories-hero { margin-bottom: 64px; }
 
@@ -3390,7 +3390,7 @@ footer {
 .menu-page {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 80px var(--pad) 120px;
+  padding: calc(var(--nav-h) + var(--ticker-h) + 60px) var(--pad) 120px;
 }
 .menu-page-head {
   display: flex;
@@ -3522,7 +3522,7 @@ footer {
 .static-page {
   max-width: 880px;
   margin: 0 auto;
-  padding: 80px var(--pad) 120px;
+  padding: calc(var(--nav-h) + var(--ticker-h) + 60px) var(--pad) 120px;
 }
 .static-page-head {
   padding-bottom: 48px;
