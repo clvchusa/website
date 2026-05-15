@@ -294,7 +294,7 @@ function renderHome() {
       <h2>${H.reserveStrip.headline}</h2>
       <p class="sub">${H.reserveStrip.sub}</p>
     </div>
-    <a href="#/reserve" class="bigcta" data-link>
+    <a href="#/reserve" class="bigcta" data-link data-cta="reserve">
       <div>
         <div class="t">${H.reserveStrip.ctaTitle}</div>
         <div class="s">${H.reserveStrip.ctaSub}</div>
@@ -450,7 +450,7 @@ ${renderGameday(l.id)}
       <h2>Table for<br><em>tonight?</em></h2>
       <p class="sub">${l.status === 'open' ? 'Reservations available — book your table online.' : l.status === 'prep' ? 'Reservations open from 4 PM today.' : 'Founding reservations open. Priority to members and wait-list.'}</p>
     </div>
-    <a href="#/reserve?city=${l.id}" class="bigcta" data-link>
+    <a href="#/reserve?city=${l.id}" class="bigcta" data-link data-cta="reserve">
       <div>
         <div class="t">Reserve</div>
         <div class="s">→ ${l.city}</div>
@@ -804,6 +804,44 @@ function renderMenu() {
   </div>
 </section>
 ${renderFooter()}
+  `;
+}
+
+/* ─────── THANK YOU ─────── */
+function renderThankYou() {
+  return `
+<section class="locpage">
+  <div class="locpage-head" style="min-height:60vh;display:flex;align-items:center;">
+    <div>
+      <div class="eyebrow" style="margin-bottom:24px;">CLVCH · You're in</div>
+      <h1>Check your<br><em>email.</em></h1>
+      <p class="sub" style="margin-top:24px;max-width:480px;font-size:16px;line-height:1.7;color:var(--bone-dim);">We sent you a confirmation link. Click it to lock in your spot on the CLVCH list — first access to new openings, residencies, and gameday tables.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:40px;">
+        <a href="#/" data-link class="cta" style="display:inline-block;padding:16px 32px;font-size:13px;">Back to home →</a>
+        <a href="https://instagram.com/clvch.usa" class="nav-social--ig" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--bone-muted);transition:color 220ms;">Follow us on Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+  `;
+}
+
+/* ─────── CONFIRMED ─────── */
+function renderConfirmed() {
+  return `
+<section class="locpage">
+  <div class="locpage-head" style="min-height:60vh;display:flex;align-items:center;">
+    <div>
+      <div class="eyebrow" style="margin-bottom:24px;">CLVCH · Welcome</div>
+      <h1>You're<br><em>confirmed.</em></h1>
+      <p class="sub" style="margin-top:24px;max-width:480px;font-size:16px;line-height:1.7;color:var(--bone-dim);">Welcome to the CLVCH list. You'll hear from us first — new cities, exclusive tables, and nights worth showing up for.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:40px;">
+        <a href="#/reserve" data-link class="cta" style="display:inline-block;padding:16px 32px;font-size:13px;">Reserve a table →</a>
+        <a href="#/" data-link style="display:inline-flex;align-items:center;padding:16px 24px;border:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--bone-muted);transition:color 220ms;">Back to home</a>
+      </div>
+    </div>
+  </div>
+</section>
   `;
 }
 
@@ -2005,6 +2043,8 @@ function route() {
   else if (segs[0] === "terms") html = renderTerms();
   else if (segs[0] === "stories" && segs[1]) html = renderStory(segs[1]);
   else if (segs[0] === "stories") html = renderStories();
+  else if (segs[0] === "thank-you") html = renderThankYou();
+  else if (segs[0] === "confirmed") html = renderConfirmed();
   else if (segs[0] === "admin") html = renderHome();
   else html = renderHome();
 
