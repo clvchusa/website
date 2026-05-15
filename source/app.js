@@ -639,12 +639,62 @@ window.CLVCH.saveMenu = () => {
     if (close2) close2.addEventListener("click", () => { if (cityId) markSeen(cityId); dismiss(); });
     if (skip2) skip2.addEventListener("click", () => { if (cityId) proceed(cityId); else dismiss(); });
     if (form2) {
-      form2.addEventListener("submit", (e) => {
+      form2.addEventListener("submit", async (e) => {
         e.preventDefault();
         const val = input2?.value.trim();
-        if (!val) return;
+
+        if (!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+          let errEl = form2.querySelector(".cg-error");
+          if (!errEl) {
+            errEl = document.createElement("p");
+            errEl.className = "cg-error";
+            errEl.style.cssText = "color:#ff8b7e;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;margin-top:8px;";
+            form2.appendChild(errEl);
+          }
+          errEl.textContent = "Enter a valid email.";
+          return;
+        }
+
         markEmail(val);
-        showSuccess(`We'll write when the list drops in ${cityObj ? cityObj.city : "your city"}.`, cityId);
+
+        const submitBtn = form2.querySelector("[type=submit]");
+        const originalBtnText = submitBtn ? submitBtn.textContent : "Join";
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Joining..."; }
+
+        try {
+          const res = await fetch("/api/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: val, city: cityId || "", source: "city-gate-modal" }),
+          });
+          const data = await res.json().catch(() => ({}));
+
+          if (res.ok && data.success) {
+            showSuccess(`We'll write when the list drops in ${cityObj ? cityObj.city : "your city"}.`, cityId);
+          } else {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }
+            if (input2) input2.value = val;
+            let errEl = form2.querySelector(".cg-error");
+            if (!errEl) {
+              errEl = document.createElement("p");
+              errEl.className = "cg-error";
+              errEl.style.cssText = "color:#ff8b7e;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;margin-top:8px;";
+              form2.appendChild(errEl);
+            }
+            errEl.textContent = "Couldn't add you. Try again?";
+          }
+        } catch {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }
+          if (input2) input2.value = val;
+          let errEl = form2.querySelector(".cg-error");
+          if (!errEl) {
+            errEl = document.createElement("p");
+            errEl.className = "cg-error";
+            errEl.style.cssText = "color:#ff8b7e;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;margin-top:8px;";
+            form2.appendChild(errEl);
+          }
+          errEl.textContent = "Couldn't add you. Try again?";
+        }
       });
     }
   }

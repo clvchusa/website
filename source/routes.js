@@ -809,6 +809,20 @@ ${renderFooter()}
 
 /* ─────── THANK YOU ─────── */
 function renderThankYou() {
+  let storedEmail = '';
+  try { storedEmail = localStorage.getItem('clvch_email') || ''; } catch {}
+
+  const phoneSection = storedEmail ? `
+<div id="tyPhoneSection" style="border-top:1px solid var(--line-soft);margin-top:64px;padding-top:48px;max-width:480px;">
+  <div class="eyebrow" style="margin-bottom:16px;color:var(--bone-muted);">INSIDE TRACK.</div>
+  <p style="font-family:var(--editorial);font-size:17px;color:var(--bone-dim);line-height:1.5;font-weight:300;margin-bottom:24px;">Want first-call texts for sold-out nights and gameday tables?</p>
+  <form id="tyPhoneForm" style="display:flex;flex-direction:column;gap:12px;">
+    <input type="tel" id="tyPhoneInput" name="phone" placeholder="Mobile number" style="background:transparent;border:1px solid var(--line);color:var(--bone);padding:16px;font-family:var(--mono);font-size:12px;letter-spacing:0.08em;width:100%;box-sizing:border-box;outline:none;min-height:44px;" />
+    <button type="submit" id="tyPhoneBtn" class="cta" style="width:100%;padding:16px;font-size:13px;min-height:44px;">Get VIP Alerts</button>
+  </form>
+  <p style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--bone-muted);text-transform:uppercase;margin-top:12px;text-align:center;">Texts only. Unsubscribe anytime.</p>
+</div>` : '';
+
   return `
 <section class="locpage">
   <div class="locpage-head" style="min-height:60vh;display:flex;align-items:center;">
@@ -820,6 +834,7 @@ function renderThankYou() {
         <a href="#/" data-link class="cta" style="display:inline-block;padding:16px 32px;font-size:13px;">Back to home →</a>
         <a href="https://instagram.com/clvch.usa" class="nav-social--ig" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--bone-muted);transition:color 220ms;">Follow us on Instagram</a>
       </div>
+      ${phoneSection}
     </div>
   </div>
 </section>
@@ -828,6 +843,32 @@ function renderThankYou() {
 
 /* ─────── CONFIRMED ─────── */
 function renderConfirmed() {
+  let storedEmail = '';
+  let phoneCaptured = false;
+  try { storedEmail = localStorage.getItem('clvch_email') || ''; } catch {}
+  try { phoneCaptured = localStorage.getItem('clvch_phone_captured') === 'true'; } catch {}
+
+  const phoneSection = (storedEmail && !phoneCaptured) ? `
+<div id="cfPhoneSection" style="border-top:1px solid var(--line-soft);margin-top:64px;padding-top:48px;max-width:480px;">
+  <div class="eyebrow" style="margin-bottom:16px;color:var(--bone-muted);">INSIDE TRACK.</div>
+  <p style="font-family:var(--editorial);font-size:17px;color:var(--bone-dim);line-height:1.5;font-weight:300;margin-bottom:24px;">Want first-call texts for sold-out nights and gameday tables?</p>
+  <form id="cfPhoneForm" style="display:flex;flex-direction:column;gap:12px;">
+    <input type="tel" id="cfPhoneInput" name="phone" placeholder="Mobile number" style="background:transparent;border:1px solid var(--line);color:var(--bone);padding:16px;font-family:var(--mono);font-size:12px;letter-spacing:0.08em;width:100%;box-sizing:border-box;outline:none;min-height:44px;" />
+    <button type="submit" id="cfPhoneBtn" class="cta" style="width:100%;padding:16px;font-size:13px;min-height:44px;">Get VIP Alerts</button>
+  </form>
+  <p style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--bone-muted);text-transform:uppercase;margin-top:12px;text-align:center;">Texts only. Unsubscribe anytime.</p>
+</div>` : '';
+
+  const socialSection = `
+<div style="border-top:1px solid var(--line-soft);margin-top:64px;padding-top:48px;max-width:480px;">
+  <div class="eyebrow" style="margin-bottom:16px;color:var(--bone-muted);">FOLLOW THE FLOOR.</div>
+  <p style="font-family:var(--editorial);font-size:17px;color:var(--bone-dim);line-height:1.5;font-weight:300;margin-bottom:24px;">Follow CLVCH for first looks.</p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    <a href="https://instagram.com/clvch.usa" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:16px 24px;border:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--bone-muted);transition:color 220ms;">Follow on Instagram</a>
+    <a href="https://facebook.com/clvchusa" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:16px 24px;border:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--bone-muted);transition:color 220ms;">Follow on Facebook</a>
+  </div>
+</div>`;
+
   return `
 <section class="locpage">
   <div class="locpage-head" style="min-height:60vh;display:flex;align-items:center;">
@@ -839,6 +880,8 @@ function renderConfirmed() {
         <a href="#/reserve" data-link class="cta" style="display:inline-block;padding:16px 32px;font-size:13px;">Reserve a table →</a>
         <a href="#/" data-link style="display:inline-flex;align-items:center;padding:16px 24px;border:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--bone-muted);transition:color 220ms;">Back to home</a>
       </div>
+      ${phoneSection}
+      ${socialSection}
     </div>
   </div>
 </section>
@@ -2110,6 +2153,100 @@ function route() {
       done.className = 'gdposter-notify-done';
       done.textContent = "You're on the list — lineup drops in your inbox first.";
       gdNotifyForm.replaceWith(done);
+    });
+  }
+
+  // ─── Thank-you phone capture ───
+  const tyPhoneForm = outlet.querySelector('#tyPhoneForm');
+  if (tyPhoneForm) {
+    tyPhoneForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const phoneVal = tyPhoneForm.querySelector('#tyPhoneInput')?.value.trim();
+      if (!phoneVal) return;
+      const btn = tyPhoneForm.querySelector('#tyPhoneBtn');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      let email = '';
+      try { email = localStorage.getItem('clvch_email') || ''; } catch {}
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, phone: phoneVal, source: 'thank-you-phone' }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          try { localStorage.setItem('clvch_phone_captured', 'true'); } catch {}
+          const section = outlet.querySelector('#tyPhoneSection');
+          if (section) section.innerHTML = `<p style="font-family:var(--editorial);font-style:italic;font-size:24px;color:var(--gold);line-height:1.4;margin-top:64px;border-top:1px solid var(--line-soft);padding-top:48px;">You're on the floor.<br>See you soon.</p>`;
+        } else {
+          if (btn) { btn.disabled = false; btn.textContent = 'Get VIP Alerts'; }
+          let errEl = tyPhoneForm.querySelector('.ty-phone-error');
+          if (!errEl) {
+            errEl = document.createElement('p');
+            errEl.className = 'ty-phone-error';
+            errEl.style.cssText = 'color:#ff8b7e;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;margin-top:8px;';
+            tyPhoneForm.appendChild(errEl);
+          }
+          errEl.textContent = 'Hmm, try again.';
+        }
+      } catch {
+        if (btn) { btn.disabled = false; btn.textContent = 'Get VIP Alerts'; }
+        let errEl = tyPhoneForm.querySelector('.ty-phone-error');
+        if (!errEl) {
+          errEl = document.createElement('p');
+          errEl.className = 'ty-phone-error';
+          errEl.style.cssText = 'color:#ff8b7e;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;margin-top:8px;';
+          tyPhoneForm.appendChild(errEl);
+        }
+        errEl.textContent = 'Hmm, try again.';
+      }
+    });
+  }
+
+  // ─── Confirmed phone capture ───
+  const cfPhoneForm = outlet.querySelector('#cfPhoneForm');
+  if (cfPhoneForm) {
+    cfPhoneForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const phoneVal = cfPhoneForm.querySelector('#cfPhoneInput')?.value.trim();
+      if (!phoneVal) return;
+      const btn = cfPhoneForm.querySelector('#cfPhoneBtn');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      let email = '';
+      try { email = localStorage.getItem('clvch_email') || ''; } catch {}
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, phone: phoneVal, source: 'confirmed-phone' }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          try { localStorage.setItem('clvch_phone_captured', 'true'); } catch {}
+          const section = outlet.querySelector('#cfPhoneSection');
+          if (section) section.innerHTML = `<p style="font-family:var(--editorial);font-style:italic;font-size:24px;color:var(--gold);line-height:1.4;margin-top:64px;border-top:1px solid var(--line-soft);padding-top:48px;">You're on the floor.<br>See you soon.</p>`;
+        } else {
+          if (btn) { btn.disabled = false; btn.textContent = 'Get VIP Alerts'; }
+          let errEl = cfPhoneForm.querySelector('.cf-phone-error');
+          if (!errEl) {
+            errEl = document.createElement('p');
+            errEl.className = 'cf-phone-error';
+            errEl.style.cssText = 'color:#ff8b7e;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;margin-top:8px;';
+            cfPhoneForm.appendChild(errEl);
+          }
+          errEl.textContent = 'Hmm, try again.';
+        }
+      } catch {
+        if (btn) { btn.disabled = false; btn.textContent = 'Get VIP Alerts'; }
+        let errEl = cfPhoneForm.querySelector('.cf-phone-error');
+        if (!errEl) {
+          errEl = document.createElement('p');
+          errEl.className = 'cf-phone-error';
+          errEl.style.cssText = 'color:#ff8b7e;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;margin-top:8px;';
+          cfPhoneForm.appendChild(errEl);
+        }
+        errEl.textContent = 'Hmm, try again.';
+      }
     });
   }
 
