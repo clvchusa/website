@@ -16,3 +16,19 @@ desktop.ini
 
 # Node (future-proof for Next.js)
 node_modules/
+
+# Claude session files
+.claude/
+
+# Local screenshots / portfolio reference
+screenshots/
+
+# Environment variables (for the upcoming Brevo setup)
+.env
+.env.local
+.env.*.local
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
