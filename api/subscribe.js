@@ -22,6 +22,8 @@ export default async function handler(req, res) {
 
   let brevoRes;
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
     brevoRes = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
@@ -30,9 +32,11 @@ export default async function handler(req, res) {
         'accept':       'application/json',
       },
       body: JSON.stringify(payload),
+      signal: controller.signal,
     });
+    clearTimeout(timeoutId);
   } catch (err) {
-    console.error('[subscribe] network error calling Brevo:', err);
+    console.error('[subscribe] network error calling Brevo:', err.message);
     return res.status(500).json({ success: false, message: 'Something went wrong, please try again.' });
   }
 
